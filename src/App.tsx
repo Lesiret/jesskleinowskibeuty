@@ -42,12 +42,12 @@ export default function App() {
         
         {/* Foto de Perfil com o Badge de Estrela no canto */}
         <div className="relative mb-5">
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shadow-sm border border-[#ede5e9] bg-white">
+          <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden shadow-sm border border-[#ede5e9] bg-white">
             <img
               src={profilePic}
               alt="Jéssica Kleinowski"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover object-[center_42%] rounded-full"
             />
           </div>
 
