@@ -1,0 +1,6 @@
+{
+  "name": "Jéssica Kleinowski - Cartomancia",
+  "description": "Página oficial de Jéssica Kleinowski · Lash Designer. Acesso rápido ao WhatsApp, Instagram, TikTok e Agendamentos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
