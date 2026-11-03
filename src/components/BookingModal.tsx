@@ -21,7 +21,8 @@ import {
   Plus,
   Trash2,
   Layers,
-  Send
+  Send,
+  ShoppingCart
 } from 'lucide-react';
 import { Service, ServiceCategory, SERVICE_CATEGORIES, ScheduleSettings, SelectedServiceItem } from '../types';
 import { StorageService } from '../services/storage';
@@ -450,9 +451,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onB
                     <h3 className="font-serif-brand font-bold text-base text-stone-900 uppercase">
                       1. Escolha os Procedimentos
                     </h3>
-                    <p className="text-xs text-stone-500 mt-0.5">
-                      Selecione a categoria e o serviço desejado. Você pode acrescentar mais de um procedimento!
-                    </p>
                   </div>
 
                   {/* 1. COMBOBOX DE CATEGORIA (BORDAS ARREDONDADAS FECHADA E ABERTA) */}
@@ -481,23 +479,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onB
                           options={serviceOptions}
                           placeholder="Selecione o procedimento..."
                         />
-
-                        {/* Descrição breve se houver */}
-                        {categoryServices.find(s => s.id === selectedServiceIdForCurrentCat)?.description && (
-                          <p className="text-[11px] text-stone-500 italic pl-1">
-                            {categoryServices.find(s => s.id === selectedServiceIdForCurrentCat)?.description}
-                          </p>
-                        )}
                       </div>
 
-                      {/* Botão de Adicionar à lista */}
+                      {/* Botão de Adicionar com ícone de carrinho */}
                       <button
                         type="button"
                         onClick={handleAddServiceToCart}
-                        className="w-full py-2.5 px-3 rounded-2xl bg-white hover:bg-[#faeef2] border border-[#e0c4d2] text-[#87556e] font-serif-brand font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-98"
+                        className="w-full py-2.5 px-3 rounded-2xl bg-white hover:bg-[#faeef2] border border-[#e0c4d2] text-[#87556e] font-serif-brand font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-98"
                       >
-                        <Plus className="w-4 h-4 text-[#c082a0]" />
-                        <span>+ Adicionar este Procedimento</span>
+                        <ShoppingCart className="w-4 h-4 text-[#c082a0]" />
+                        <span>Adicionar este Procedimento</span>
                       </button>
                     </div>
                   )}
@@ -511,7 +502,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onB
                       </span>
                     </div>
 
-                    {selectedServicesList.length > 0 ? (
+                    {selectedServicesList.length > 0 && (
                       <div className="space-y-2">
                         {selectedServicesList.map(item => (
                           <div 
@@ -555,12 +546,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onB
                             {StorageService.formatCurrency(totalPrice)}
                           </span>
                         </div>
-                      </div>
-                    ) : (
-                      <div className="p-3.5 rounded-2xl bg-stone-50 border border-dashed border-stone-200 text-center text-xs text-stone-500">
-                        {selectedCategory 
-                          ? 'Clique em "+ Adicionar este Procedimento" acima para confirmar a escolha.'
-                          : 'Selecione uma categoria acima para começar a adicionar procedimentos.'}
                       </div>
                     )}
                   </div>
