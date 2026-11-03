@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { ExternalLink, Lock, Calendar, GraduationCap } from 'lucide-react';
-import profilePic from './assets/profile.png';
+import profilePic from './image/profile.jpeg';
 import { BookingModal } from './components/BookingModal';
 import { AdminPanel } from './components/AdminPanel';
 import { CoursesModal } from './components/CoursesModal';
